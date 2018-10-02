@@ -61,7 +61,7 @@ def get_data(symbol, hashvalue):
 
 
 def build_connection():
-    conn = psycopg2.connect(host="130.211.200.202", dbname="Stocks", user="postgres", password="Sammy1717")
+    conn = psycopg2.connect(host="", dbname="", user="", password="")
     cur = conn.cursor()
     # print cur
     return cur, conn
