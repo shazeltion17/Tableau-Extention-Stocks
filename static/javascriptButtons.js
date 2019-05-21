@@ -26,9 +26,10 @@ button.addEventListener ("click", function() {
                  }, function(data) {
                         $('#spinner').hide();
                         $("#sam").text(data.result);
-			console.log(data.result)
+			            //console.log(data.result)
                         const param = tableau.extensions.dashboardContent.dashboard.getParametersAsync().then (function (sum) {
-                        const sam = sum[0].changeValueAsync(data.result)
+                        const sam = sum[2].changeValueAsync(data.result)
+                        console.log(sum[2])
                         });
                         $('#sam').show();
                      });

@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20183.18.1219.1533                               -->
+<workbook source-build='2018.3.2 (20183.18.1219.1533)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <Extensions />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Top Customers' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='5'>
+        <calculation class='tableau' formula='5' />
+        <range granularity='5' max='20' min='5' />
+      </column>
+      <column caption='Profit Bin Size' datatype='integer' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='200'>
+        <calculation class='tableau' formula='200' />
+        <range granularity='50' max='200' min='50' />
+      </column>
+      <column caption='HashValue' datatype='string' name='[Parameter 3]' param-domain-type='any' role='measure' type='nominal' value='&quot;MV356K&quot;'>
+        <calculation class='tableau' formula='&quot;MV356K&quot;' />
+      </column>
+    </datasource>
+    <datasource caption='pricing (postgres)' inline='true' name='federated.0jm999n003r9rl12mgocb0kln63d' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='tableaudatainstance.cotqt9fi7tuv.us-west-2.rds.amazonaws.com' name='postgres.1p2ef1k0u64m6g15kbo2w11xv1d0'>
+            <connection authentication='username-password' class='postgres' dbname='postgres' odbc-native-protocol='' one-time-sql='' port='5432' server='tableaudatainstance.cotqt9fi7tuv.us-west-2.rds.amazonaws.com' username='Samuel' />
+          </named-connection>
+        </named-connections>
+        <relation connection='postgres.1p2ef1k0u64m6g15kbo2w11xv1d0' name='pricing' table='[public].[pricing]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>volume</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[volume]</local-name>
+            <parent-name>[pricing]</parent-name>
+            <remote-alias>volume</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>close</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[close]</local-name>
+            <parent-name>[pricing]</parent-name>
+            <remote-alias>close</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dateclose</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[dateclose]</local-name>
+            <parent-name>[pricing]</parent-name>
+            <remote-alias>dateclose</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_DATE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sma</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[sma]</local-name>
+            <parent-name>[pricing]</parent-name>
+            <remote-alias>sma</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ticker</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[ticker]</local-name>
+            <parent-name>[pricing]</parent-name>
+            <remote-alias>ticker</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>255</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hashvalue</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[hashvalue]</local-name>
+            <parent-name>[pricing]</parent-name>
+            <remote-alias>hashvalue</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>255</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='HashTrue?' datatype='boolean' name='[Calculation_381398650152173568]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[hashvalue] = [Parameters].[Parameter 3]' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Close' datatype='real' name='[close]' role='measure' type='quantitative' />
+      <column caption='Dateclose' datatype='date' name='[dateclose]' role='dimension' type='ordinal' />
+      <column caption='Hashvalue' datatype='string' name='[hashvalue]' role='dimension' type='nominal' />
+      <column caption='Sma' datatype='real' name='[sma]' role='measure' type='quantitative' />
+      <column caption='Ticker' datatype='string' name='[ticker]' role='dimension' type='nominal' />
+      <column caption='Volume' datatype='real' name='[volume]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.352332' measure-ordering='alphabetic' measure-percentage='0.352332' parameter-percentage='0.295337' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='HashValue' datatype='string' name='[Parameter 3]' param-domain-type='any' role='measure' type='nominal' value='&quot;MV356K&quot;'>
+          <calculation class='tableau' formula='&quot;MV356K&quot;' />
+        </column>
+      </datasource-dependencies>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='pricing (postgres)' name='federated.0jm999n003r9rl12mgocb0kln63d' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='HashValue' datatype='string' name='[Parameter 3]' param-domain-type='any' role='measure' type='nominal' value='&quot;MV356K&quot;'>
+              <calculation class='tableau' formula='&quot;MV356K&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0jm999n003r9rl12mgocb0kln63d'>
+            <column caption='HashTrue?' datatype='boolean' name='[Calculation_381398650152173568]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[hashvalue] = [Parameters].[Parameter 3]' />
+            </column>
+            <column caption='Close' datatype='real' name='[close]' role='measure' type='quantitative' />
+            <column caption='Dateclose' datatype='date' name='[dateclose]' role='dimension' type='ordinal' />
+            <column caption='Hashvalue' datatype='string' name='[hashvalue]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_381398650152173568]' derivation='None' name='[none:Calculation_381398650152173568:nk]' pivot='key' type='nominal' />
+            <column-instance column='[dateclose]' derivation='None' name='[none:dateclose:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[close]' derivation='Sum' name='[sum:close:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[volume]' derivation='Sum' name='[sum:volume:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[dateclose]' derivation='Day-Trunc' name='[tdy:dateclose:qk]' pivot='key' type='quantitative' />
+            <column caption='Volume' datatype='real' name='[volume]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0jm999n003r9rl12mgocb0kln63d].[none:Calculation_381398650152173568:nk]'>
+            <groupfilter function='member' level='[none:Calculation_381398650152173568:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.0jm999n003r9rl12mgocb0kln63d].[none:dateclose:qk]' included-values='in-range'>
+            <min>#2019-01-01#</min>
+            <max>#2019-05-07#</max>
+          </filter>
+          <slices>
+            <column>[federated.0jm999n003r9rl12mgocb0kln63d].[none:dateclose:qk]</column>
+            <column>[federated.0jm999n003r9rl12mgocb0kln63d].[none:Calculation_381398650152173568:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0jm999n003r9rl12mgocb0kln63d].[sum:close:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.0jm999n003r9rl12mgocb0kln63d].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0jm999n003r9rl12mgocb0kln63d].[sum:volume:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0jm999n003r9rl12mgocb0kln63d].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0jm999n003r9rl12mgocb0kln63d].[sum:close:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.0jm999n003r9rl12mgocb0kln63d].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.0jm999n003r9rl12mgocb0kln63d].[sum:volume:qk] + [federated.0jm999n003r9rl12mgocb0kln63d].[sum:close:qk])</rows>
+        <cols>[federated.0jm999n003r9rl12mgocb0kln63d].[tdy:dateclose:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <datasources>
+        <datasource name='Parameters' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='HashValue' datatype='string' name='[Parameter 3]' param-domain-type='any' role='measure' type='nominal' value='&quot;MV356K&quot;'>
+          <calculation class='tableau' formula='&quot;MV356K&quot;' />
+        </column>
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='6' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='4' type='layout-basic' w='82400' x='800' y='1000'>
+              <zone forceUpdate='true' h='30375' id='1' param='[com.example.extensions.name].[0.1.0].[http://localhost:5000]' type='dashboard-object' w='82400' x='800' y='1000'>
+                <add-in add-in-id='com.example.extensions.name' extension-url='http://localhost:5000' extension-version='0.1.0' instance-id='21232615F612457AB5DC8F4AC15E9EAB'>
+                  <instance-settings />
+                  <type-settings>
+                    <dashboard />
+                  </type-settings>
+                </add-in>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='67625' id='3' name='Sheet 1' w='82400' x='800' y='31375'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98000' id='5' is-fixed='true' param='vert' type='layout-flow' w='16000' x='83200' y='1000'>
+              <zone h='8250' id='7' name='Sheet 1' pane-specification-id='1' param='[federated.0jm999n003r9rl12mgocb0kln63d].[:Measure Names]' type='color' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='6500' id='8' mode='type_in' param='[Parameters].[Parameter 3]' type='paramctrl' w='16000' x='83200' y='9250'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                  <format attr='background-color' value='#ffffff' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Sheet 1'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='1' />
+      <simple-id uuid='{32199C60-550E-4386-A005-C2A8A7831668}' />
+    </window>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0jm999n003r9rl12mgocb0kln63d].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3A76C7C6-56D5-4752-9F98-38E06A123AB9}' />
+    </window>
+  </windows>
+  <referenced-extensions>
+    <referenced-extension>
+      <manifest manifest-version='0.1'>
+        <dashboard-extension extension-version='0.1.0' id='com.example.extensions.name'>
+          <default-locale>en_US</default-locale>
+          <name resource-id='name' />
+          <description>Extension Description</description>
+          <author email='USER@example.com' name='USERNAME' organization='MyCo' website='https://www.example.com' />
+          <min-api-version>1.0</min-api-version>
+          <source-location>
+            <url>http://localhost:5000</url>
+          </source-location>
+          <icon>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAlhJREFUOI2Nkt9vy1EYh5/3bbsvRSySCZbIxI+ZCKsN2TKtSFyIrV2WuRCJuBiJWxfuxCVXbvwFgiEtposgLFJElnbU1SxIZIIRJDKTrdu+53Uhra4mce7Oe57Pcz7JOULFisViwZ+29LAzOSjQYDgz1ZcCvWuXV11MJpN+OS/lm6179teqH0yDqxPTCyKSA8DcDsyOmOprnCaeP7459pdgy969i0LTC3IO/RQMyoHcQN+3cnljW3dNIFC47qDaK3g7BwdTkwBaBELT4ZPOUVWgKl4ZBnjxJPUlMDnTDrp0pmr6RHFeEjjcUUXPDGeSEwDN0Xg8sivxMhJNjGzbHd8PkM3eHRfkrBM5NkcQaY2vUnTlrDIA0NoaX+KLXFFlowr14tvVpqb2MICzmQcKqxvbumv+NAhZGCCIPwEw6QWXKYRL/VUXO0+rAUJiPwAk5MIlgVfwPjjHLCL1APmHN94ZdqeYN+NW/mn6I4BvwQYchcLnwFhJMDiYmlRxAzjpKWZkYkUCcZ2I61wi37tLbYyjiN0fHk5Oz3nGSLSzBbNHCF35R7f6K1/hN9PRhek11FrymfQQQKB4+Gl05P2qNRtmETlXW7e+b2z01dfycGNbfFMAbqNyKp9Jp4rzOT8RYFs0njJkc2iqsCObvTsOsDWWqA5C1uFy+Uz/oXJeKwVT4h0RmPUXhi79vuC0Ku6yOffTK3g9lfxfDQAisY516sg5kfOCiJk7HoLt2cf9b/9LANAc7dznm98PagG1fUOZ9IP5uMB8Q4CPoyNvausapkTt3rNMuvdf3C/o6+czhtdwmwAAAABJRU5ErkJggg==</icon>
+        </dashboard-extension>
+        <resources>
+          <resource id='name'>
+            <text locale='de_DE'>name in German</text>
+            <text locale='en_US'>name in English</text>
+            <text locale='fr_BE'>name in French</text>
+          </resource>
+        </resources>
+      </manifest>
+      <referenced-views>
+        <referenced-view instances='1' viewId='Dashboard 1' />
+      </referenced-views>
+    </referenced-extension>
+  </referenced-extensions>
+</workbook>
